@@ -54,7 +54,7 @@ const AlertPage = () => {
         }}
         onClick={async () => {
           setWarning(true);
-          await new Promise((resolve) => setTimeout(resolve, 2000));
+          await new Promise((resolve) => setTimeout(resolve, 8000));
           setWarning(false);
         }}
       >
@@ -81,15 +81,26 @@ const AlertPage = () => {
         </Alert>
       </Slide>
 
-      <Zoom in={info} mountOnEnter unmountOnExit>
+      <Zoom
+        in={info}
+        timeout={{ enter: 500, exit: 3000 }}
+        mountOnEnter
+        unmountOnExit
+      >
         <Alert severity="info" sx={alertSx}>
-          This is an info Alert that ZOOMS in.
+          This is an info Alert that ZOOMS in fast and ZOOMS out slowly.
         </Alert>
       </Zoom>
 
-      <Fade in={warning} mountOnEnter unmountOnExit>
+      <Fade
+        in={warning}
+        timeout={{ enter: 5000, exit: 5000 }}
+        mountOnEnter
+        unmountOnExit
+      >
         <Alert severity="warning" sx={alertSx}>
-          This is a warning Alert that FADES in.
+          This is a warning Alert that FADES in very slowly, and stay up for a
+          longer time then other alerts.
         </Alert>
       </Fade>
 
