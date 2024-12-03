@@ -1,0 +1,72 @@
+$red: #f00;
+$orange: #ff7300;
+$yellow: #fffb00;
+$green: #48ff00;
+$cyan: #00ffd5;
+$blue: #002bff;
+$indigo: #7a00ff;
+$violet: #ff00c8;
+
+.rainbow-button {
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 10px;
+  touch-action: manipulation;
+  color: white !important;
+  font-weight: bold;
+  height: min-content;
+  font-size: 1rem;
+}
+
+.active {
+  margin: 1rem;
+  border-radius: 10px;
+  touch-action: manipulation;
+  color: black !important;
+  font-weight: bold;
+  height: min-content;
+  font-size: 1rem;
+}
+
+.rainbow-button::before {
+  position: absolute;
+  z-index: -1;
+  animation: glowing-button 5s linear infinite reverse;
+  border-radius: 10px;
+  background: linear-gradient(
+    50deg,
+    $red,
+    $red,
+    $orange,
+    $yellow,
+    $green,
+    $cyan,
+    $blue,
+    $indigo,
+    $violet,
+    $indigo,
+    $blue,
+    $cyan,
+    $green,
+    $yellow,
+    $orange,
+    $red,
+    $red
+  );
+  background-size: 400%;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+@keyframes glowing-button {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 400% 0;
+  }
+}
