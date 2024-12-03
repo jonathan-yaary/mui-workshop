@@ -12,7 +12,7 @@ const root = document.getElementById("root") as HTMLElement;
 ReactDOM.createRoot(root).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
+      <Route path={import.meta.env.VITE_BASE_URL} element={<App />}>
         <Route path="tooltip-page" element={<TooltipPage />} />
         <Route path="popup-page" element={<PopupPage />} />
         <Route path="slider-page" element={<SliderPage />} />
